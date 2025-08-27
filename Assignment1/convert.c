@@ -1,4 +1,4 @@
-
+#include <string.h>
 #include <stdint.h> // uint32_t
 
 void div_convert(uint32_t n, int base, char *out){
@@ -6,7 +6,7 @@ void div_convert(uint32_t n, int base, char *out){
 	int position = 0;
 
 	if (n==0){
-		strcopy(out, "0");
+		strcpy(out, "0");
 		return;
 	}
 
