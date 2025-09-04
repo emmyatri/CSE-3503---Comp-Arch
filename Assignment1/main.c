@@ -5,12 +5,12 @@
 void div_convert(uint32_t n, int base, char *out);
 
 int main(){
+  FILE *file;
+  char result[65];
+  uint32_t test_number;
+  int test_base;
 
-	char result[65];
-
-	div_convert(156, 8, result);
-	printf("156 in base 8: %s (expected: 234\n", result);
-
-	return 0;
-
+  file = fopen("a1_test_file.txt", "r");
+  printf("Hello GCC!\n");
+return 0;
 }
