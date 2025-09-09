@@ -88,7 +88,7 @@ void print_tables(uint32_t n){
 	div_convert(shifted, 2, bin);
 	div_convert(shifted, 8, oct);
 	div_convert(shifted, 16, hex);
-	printf("Original: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, shifted, hex);
+	printf("Left Shift by 3: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, shifted, hex);
 
 	uint32_t masked = n & 0xFF; //account for 0xFF
 	div_convert(masked, 2, bin);

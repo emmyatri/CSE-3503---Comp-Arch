@@ -36,7 +36,7 @@ int main(){
 			if(strcmp(function, "div_convert")== 0){
 				div_convert(number, base, result);
 				printf("Test %d: div_convert(%u, %d) --> Expected: %s, Got: %s", 
-					test_count, number, base, result, expected);
+					test_count, number, base, expected, result);
 				
 				if (strcmp(result, expected) == 0){
 					printf(" --> [[PASS]]\n");
@@ -47,7 +47,7 @@ int main(){
 			} else if (strcmp(function, "sub_convert") == 0){
 				sub_convert(number, base, result);
 				printf("Test %d: sub_convert(%u, %d) = %s (expected: %s)",
-					test_count, number, base, result, expected);
+					test_count, number, base, expected, result);
 
 				if (strcmp(result, expected) == 0){
 				printf(" --> [[PASS]]\n");
