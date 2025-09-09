@@ -1,5 +1,5 @@
 #include <string.h>
-#include <stdint.h> //for unsigned integer
+#include <stdint.h>
 #include <stdio.h>
 
 void div_convert(uint32_t n, int base, char *out){
@@ -43,18 +43,18 @@ void sub_convert(uint32_t n, int base, char *out){
 	char temp[65]; //same character buffer as above
 	int pos =0;//initialize position at '0'
 
-	if (n==0){ //handling edge case of zero value for number
+	if (n==0){ //handling edge case of zero
 		strcpy(out,"0");
 		return;
 	}
 
 	uint32_t power = 1; //initialize power at base0 (1)
 
-	while (power <= n / base){ //if the power is less than or equal to the number/base, multiply the power by the base
+	while (power <= n / base){ //if the power is less than or equal to the quotient  number/base, power become power * base
 		power *= base; 
 	}
 
-	while (power > 0){ //while the power is positive, subtract the power from the number and add to the digits counter
+	while (power > 0){ //while the power is greater than zero, subtract the power from the number and add to the digits counter
 		int digit = 0;
 
 		while (n >= power){
@@ -67,7 +67,8 @@ void sub_convert(uint32_t n, int base, char *out){
 	else
 		temp[pos++] = 'A' + (digit - 10);
 
-	power /= base;
+	power /= base; //power becomes the quotient of power and base
+
 	}
 
 	temp[pos] = '\0';
@@ -77,7 +78,8 @@ void sub_convert(uint32_t n, int base, char *out){
 
 
 void print_tables(uint32_t n){
-	char bin[33], oct[12], hex[9];
+
+	char bin[33], oct[12], hex[9]; //declare space for each data type
 
 	div_convert(n, 2, bin); //div_convert to base2 (binary)
 	div_convert(n, 8, oct); //run this method for the rest of the bases.
@@ -85,7 +87,7 @@ void print_tables(uint32_t n){
 	printf("Original: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, n, hex);
 
 	uint32_t shifted = n << 3;//account for left shift by 3
-	div_convert(shifted, 2, bin);
+	div_convert(shifted, 2, bin); //div_convert new number
 	div_convert(shifted, 8, oct);
 	div_convert(shifted, 16, hex);
 	printf("Left Shift by 3: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, shifted, hex);
