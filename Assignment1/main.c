@@ -55,9 +55,9 @@ int main(){
 					printf("[[FAIL]]\n");
 				}
 			}
-		}
 		
-	
+		
+		}
 
 		else if (sscanf(line, "%s %u", function, &number)== 2){ //if there are only 2 inputs from the test file, default to print_table function
 			if(strcmp(function, "print_tables") == 0){
@@ -67,11 +67,15 @@ int main(){
 				printf(" --> [[PASS]]\n\n");
 				}
 			}
-
+	}
+		
 	fclose(file); //close the file to avoid resource leak
-	printf("\n\nCompleted %d/100 tests. Terminating main.c...\n\n", test_count); //final message to signal program termination and returns number of tests passed out of 100
+	printf("\n\nSummary: %d/100 tests passed.\n\n", test_count); //final message to signal program termination and returns number of tests passed out of 100
 	return 0; //end the program
 }
+
+
+
 
 
 
