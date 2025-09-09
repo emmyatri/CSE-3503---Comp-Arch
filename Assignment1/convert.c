@@ -52,7 +52,7 @@ void sub_convert(uint32_t n, int base, char *out){
 	uint32_t power = 1;
 
 	while (power <= n / base){
-		power * base;
+		power *= base;
 	}
 
 	while (power > 0){
@@ -89,11 +89,11 @@ void print_tables(uint32_t n){
 	div_convert(shifted, 2, bin);
 	div_convert(shifted, 8, oct);
 	div_convert(shifted, 16, hex);
-	printf("Original: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, n, hex);
+	printf("Original: Binary=%s Octal=%s Decimal=%u Hex=%s\n", bin, oct, shifted, hex);
 
 	uint32_t masked = n & 0xFF;
 	div_convert(masked, 2, bin);
 	div_convert(masked, 8, oct);
 	div_convert(masked, 16, hex);
-	printf("AND with 0xFF: Binary=%s Octal=%s Decimal=%u Hex=%s", bin, oct, n, hex);
+	printf("AND with 0xFF: Binary=%s Octal=%s Decimal=%u Hex=%s", bin, oct, masked, hex);
 }
