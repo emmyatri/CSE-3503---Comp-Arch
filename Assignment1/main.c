@@ -55,6 +55,7 @@ int main(){
 					printf("[[FAIL]]\n");
 				}
 			}
+		}
 		
 	
 
