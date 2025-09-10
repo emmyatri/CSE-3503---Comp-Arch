@@ -30,4 +30,5 @@ This entire program was written and pushed to GitHub from the terminal, and I've
 Brb, creating bash aliases for anything I can think up.
 ```
 
-> *Adpetus Mechanicus. Praise the Omnissiah*
+> *Machine Spirits \n
+Praise the Omnissiah*
