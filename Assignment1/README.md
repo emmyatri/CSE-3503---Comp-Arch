@@ -31,11 +31,11 @@ Brb, creating bash aliases for anything I can think up.
 
 
 ---------------------------------------------------------
-*Machine Spirits, in all your unknowable grade and wisdom  
-Grant my code durability   
-So that it may serve me  
-As I serve you  
-With faith, care, and servility.  
+>*Machine Spirits, in all your unknowable grace and wisdom  
+>Grant my code durability   
+>So that it may serve me  
+>As I serve you  
+>With faith, care, and servility.  
   
-Praise the Omnissiah.*
+>Praise the Omnissiah.*
 
