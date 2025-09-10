@@ -65,6 +65,8 @@ int main(){
 				printf("Test %d: print_tables(%u) --> \n", test_count, number); //formatting 
 				print_tables(number);
 				printf(" --> [[PASS]]\n\n");
+				}else {
+					printf(" --> [[FAIL]]");
 				}
 			}
 	}
