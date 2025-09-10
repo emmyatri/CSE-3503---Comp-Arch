@@ -35,6 +35,6 @@ Brb, creating bash aliases for anything I can think up.
 >Grant my code durability   
 >So that it may serve me  
 >As I serve you  
->With faith, care, and servility. 
->**Praise the Omnissiah.**
+>With faith, care, and servility.  
+>**Praise the Omnissiah**
 
