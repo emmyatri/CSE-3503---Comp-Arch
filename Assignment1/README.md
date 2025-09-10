@@ -26,4 +26,4 @@ Completed 100/100 test.
 This entire program was written and pushed to GitHub from the terminal, and I've never felt more empowered. 
 Brb, creating bash aliases for anything I can think up.
 
-!("/home/emmyatri/Documents/Signatures/signature.png") 
+!(signature.png) 
