@@ -14,8 +14,8 @@ int main(){
 		return 1;
 	}
 
-	char line[256]; //safe amount of storage for each line of test file
-	char function[100]; //declare storage for function to compare against test file function
+	char line[256]; //safe amount of storage for each line of test file (probably too much)
+	char function[100]; //declare storage for function to compare against test file function(also probably too much)
 	uint32_t number; 
 	int base;
 	char expected[200];
@@ -52,7 +52,7 @@ int main(){
 				if (strcmp(result, expected) == 0){
 				printf(" --> [[PASS]]\n");
 				} else {
-					printf("[[FAIL]]\n");
+					printf("[[FAIL]]\n");//womp womp
 				}
 			}
 		
@@ -73,9 +73,4 @@ int main(){
 	printf("\n\nSummary: %d/100 tests passed.\n\n", test_count); //final message to signal program termination and returns number of tests passed out of 100
 	return 0; //end the program
 }
-
-
-
-
-
 

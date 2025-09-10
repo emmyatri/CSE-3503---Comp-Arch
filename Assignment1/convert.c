@@ -6,7 +6,6 @@ void div_convert(uint32_t n, int base, char *out){
 
 	char temp[65]; //temporary buffer
 	int pos =  0; //declare integer as placeholder for position initialized at zero
-		 
 
 
 	if (n==0){ //handle zero case
@@ -40,6 +39,7 @@ void div_convert(uint32_t n, int base, char *out){
 
 	
 void sub_convert(uint32_t n, int base, char *out){
+
 	char temp[65]; //same character buffer as above
 	int pos =0;//initialize position at '0'
 
