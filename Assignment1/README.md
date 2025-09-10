@@ -9,10 +9,13 @@ This is a basic number base conversion utility.
 
 ## Bash Instruction:
 
-'''bash
+```
+bash
+
 gcc -o conert convert.c main.c
 ./convert
-'''
+
+```
 
 ## Test Results
 
@@ -26,4 +29,4 @@ Completed 100/100 test.
 This entire program was written and pushed to GitHub from the terminal, and I've never felt more empowered. 
 Brb, creating bash aliases for anything I can think up.
 
-!(signature.png) 
+ 
