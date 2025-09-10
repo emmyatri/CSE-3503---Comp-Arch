@@ -39,9 +39,9 @@ int main(){
 					test_count, number, base, expected, result); //formats div_convert to print to console
 				
 				if (strcmp(result, expected) == 0){ //if the result matches the expected, print PASS
-					printf(" --> [[PASS]]\n");
+					printf(" --> [[PASS]]\n\n");
 				} else { //womp womp
-					printf("[[FAIL]]\n");
+					printf("[[FAIL]]\n\n");
 				}
 			
 			} else if (strcmp(function, "sub_convert") == 0){ //functions the same as div_convert logic
@@ -50,9 +50,9 @@ int main(){
 					test_count, number, base, expected, result);
 
 				if (strcmp(result, expected) == 0){
-				printf(" --> [[PASS]]\n");
+				printf(" --> [[PASS]]\n\n");
 				} else {
-					printf("[[FAIL]]\n");//womp womp
+					printf("[[FAIL]]\n\n");//womp womp
 				}
 			}
 		
