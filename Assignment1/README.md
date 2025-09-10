@@ -37,5 +37,5 @@ So that it may serve me
 As I serve you  
 With faith, care, and servility.  
   
-Praise the Omnissiah.* 
----------------------------------------------------------
+Praise the Omnissiah. 
+
