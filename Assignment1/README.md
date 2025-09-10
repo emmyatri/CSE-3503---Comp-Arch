@@ -25,10 +25,8 @@ Completed 100/100 tests.
 ## Notes:
 
 ```
-This entire program was written and pushed to GitHub from the terminal, and I've never felt more empowered. 
+-This entire program was written and pushed to GitHub from the terminal and I've never felt more empowered. 
 
-Brb, creating bash aliases for anything I can think up.
-```
+-Brb, creating bash aliases for anything I can think up.
 
-> *Machine Spirits \n
-Praise the Omnissiah*
+
