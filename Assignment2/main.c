@@ -79,7 +79,7 @@ int main(){
 			//signed representation functions
 			
 			else if (strcmp(function, "to_sign_magnitude") == 0){
-				int32_t number = (int32_t)atoi(input1) //convert character to integer with atoi()
+				int32_t number = (int32_t)atoi(input1); //convert character to integer with atoi()
 				to_sign_magnitude(number, result);
 				printf("Test %d: to_sign_magnitude(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
@@ -89,7 +89,7 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_ones_complement")== 0){
-				int32_t number = (int32_t)atoi(input1) //character to integer
+				int32_t number = (int32_t)atoi(input1); //character to integer
 				to_ones_complement(number, result);
 				printf("Test %d: to_ones_complement(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
@@ -99,7 +99,7 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_twos_complement")== 0){
-				int32_t number = (int32_t)atoi(input1) //character to integer
+				int32_t number = (int32_t)atoi(input1); //character to integer
 				to_twos_complement(number, result);
 				printf("Test %d: to_twos_complement(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
@@ -115,7 +115,7 @@ int main(){
 
 			printf("\nSummary: %d / %d tests passed.\n", passed, test_count);
 			if (passed == test_count){
-				printf("All tests passed sucessfully! \n\n")
+				printf("All tests passed sucessfully! \n\n");
 			} else {
 				printf("%d tests failed. Check implementation.", test_count - passed);
 				return 1;
