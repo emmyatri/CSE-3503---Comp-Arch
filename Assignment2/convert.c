@@ -57,7 +57,7 @@ void oct_to_hex(const char *oct, char *out){
 	//reverse hex digits
 	int hex_len = out_pos;
 	for (int i = 0; i < hex_len; i++){
-		char[temp] = out[i];
+		char temp = out[i];
 		out[i] = out[hex_len - 1 - i];
 		out[hex_len - 1 - i] = temp;
 	}
