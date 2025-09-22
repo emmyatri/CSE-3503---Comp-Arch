@@ -90,7 +90,7 @@ void hex_to_bin(const char *hex, char *out){
 	out[out_pos] = '\0'; //null terminator
 }
 
-void to_sign_magniude(int32_t n, char *out){
+void to_sign_magnitude(int32_t n, char *out){
 	uint32_t magnitude; //initialize 
 	int is_negative = 0; //flag to track negative number
 	
