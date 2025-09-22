@@ -87,7 +87,7 @@ void hex_to_bin(const char *hex, char *out){
 		out[out_pos++] = (digit_value >> 0) & 1 ? '1' : '0'; // bit 1 [least significant]
 	}
 
-	out[out_pos] = '\0' //null terminator
+	out[out_pos] = '\0'; //null terminator
 }
 
 void to_sign_magniude(int32_t n, char *out){
@@ -130,7 +130,7 @@ void to_ones_complement(int32_t n, char *out){
 		out[31-i] = (bit_pattern >> i) & 1 ? '1' : '0';
 	}
 
-	out[32] = '\0' //null terminator
+	out[32] = '\0'; //null terminator
 }
 
 void to_twos_complement(int32_t n, char *out){
