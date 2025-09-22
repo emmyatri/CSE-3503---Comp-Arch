@@ -3,12 +3,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-void oct_to_bin(const char *oct; char *out);
-void oct_to_hex(const char *oct; char *out);
-void hex_to_bin(const char *hex; char *out);
-void to_sign_magnitude(uint32_t n; char *out);
-void to_ones_complement(uint32_t n; char *out);
-void to_twos_complement(uint32_t n; char *out);
+void oct_to_bin(const char *oct, char *out);
+void oct_to_hex(const char *oct, char *out);
+void hex_to_bin(const char *hex, char *out);
+void to_sign_magnitude(uint32_t n, char *out);
+void to_ones_complement(uint32_t n, char *out);
+void to_twos_complement(uint32_t n, char *out);
 
 
 int main(){
@@ -44,7 +44,7 @@ int main(){
 			test_count ++;
 
 			if (strcmp(function, "oct_to_bin")== 0){
-				oct_to_bin(inout1, input2);
+				oct_to_bin(input1, input2);
 				printf("Test %d: oct_to_bin("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
@@ -55,7 +55,7 @@ int main(){
 		
 			} else if (strcmp(function, "oct_to_hex")== 0){
 				oct_to_hex(input1, input2);
-				printf("Test %d: oct_to_hex("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: oct_to_hex("%s") -> Expected: ["%s"] || Got: ["%s"] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
