@@ -37,8 +37,8 @@ void oct_to_hex(const char *oct, char *out){
 		int bit_weight = 1; //Weight of current bit initialized at 1
 		
 		//Process 4 bits and handle cases where we have less than 4 bits
-		for (int j = 0; j < 4 && (i - j - 1 >= 0; j++)){
-			if (binary([i-j-1])== '1'){
+		for (int j = 0; j < 4 && (i - j - 1) >= 0; j++){
+			if (binary[i-j-1]== '1'){
 				fourBit += bit_weight; //add bit weight if bit is 1;
 			}
 			bit_weight *= 2; //move to next power of 2
