@@ -81,7 +81,7 @@ int main(){
 			else if (strcmp(function, "to_sign_magnitude") == 0){
 				int32_t number = (int32_t)atoi(input1) //convert character to integer with atoi()
 				to_sign_magnitude(number, result);
-				printf("Test %d: to_sign_magnitude("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: to_sign_magnitude(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
@@ -91,7 +91,7 @@ int main(){
 			} else if (strcmp(function, "to_ones_complement")== 0){
 				int32_t number = (int32_t)atoi(input1) //character to integer
 				to_ones_complement(number, result);
-				printf("Test %d: to_ones_complement("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: to_ones_complement(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
@@ -101,7 +101,7 @@ int main(){
 			} else if (strcmp(function, "to_twos_complement")== 0){
 				int32_t number = (int32_t)atoi(input1) //character to integer
 				to_twos_complement(number, result);
-				printf("Test %d: to_twos_complement("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: to_twos_complement(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
@@ -121,7 +121,7 @@ int main(){
 				return 1;
 			}
 		}
-		
+}
 
 
 
