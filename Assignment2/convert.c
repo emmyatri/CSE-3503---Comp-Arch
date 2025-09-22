@@ -61,10 +61,10 @@ void oct_to_hex(const char *oct, char *out){
 		out[i] = out[hex_len - 1 - i];
 		out[hex_len - 1 - i] = temp;
 	}
-	out[hex_len] = '\0' //null terminator
+	out[hex_len] = '\0'; //null terminator
 }
 
-void hex_to_bin(const char *hex; char *out){
+void hex_to_bin(const char *hex, char *out){
 	int out_pos = 0; //initialize position counter
 	int len = strlen(hex); //length of input hex string
 	
