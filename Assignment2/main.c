@@ -50,7 +50,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 		
 			} else if (strcmp(function, "oct_to_hex")== 0){
@@ -60,7 +60,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "hex_to_bin")== 0){
 				hex_to_bin(input1, input2);
@@ -69,7 +69,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_sign_magnitude") == 0){
 				to_sign_magnitude(input1, input2);
@@ -78,7 +78,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_ones_complement")== 0){
 				to_ones_complement(input1, input2);
@@ -87,7 +87,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_twos_complement")== 0){
 				to_twos_complement(input1, input2);
@@ -96,7 +96,7 @@ int main(){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
-					printf("--> [[FAIL]]\n\n")
+					printf("--> [[FAIL]]\n\n");
 				}
 			}
 		}
