@@ -45,7 +45,7 @@ int main(){
 
 			if (strcmp(function, "oct_to_bin")== 0){
 				oct_to_bin(input1, input2);
-				printf("Test %d: oct_to_bin("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: oct_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
@@ -55,7 +55,7 @@ int main(){
 		
 			} else if (strcmp(function, "oct_to_hex")== 0){
 				oct_to_hex(input1, input2);
-				printf("Test %d: oct_to_hex("%s") -> Expected: ["%s"] || Got: ["%s"] ", test_count, input1, input2, result);
+				printf("Test %d: oct_to_hex(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
