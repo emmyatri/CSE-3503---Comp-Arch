@@ -40,8 +40,10 @@ int main(){
 		}
 
 		int parsed = sscanf(line, "%s %s %s", function, input1, input2);
-		if (parsed == 3){
+		if (parsed == 3){ //makes sure all test data is parsed correctly
 			test_count ++;
+
+			//direct mapping functions
 
 			if (strcmp(function, "oct_to_bin")== 0){
 				oct_to_bin(input1, input2);
@@ -64,15 +66,21 @@ int main(){
 				}
 			} else if (strcmp(function, "hex_to_bin")== 0){
 				hex_to_bin(input1, input2);
-				printf("Test %d: hex_to_bin("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
+				printf("Test %d: hex_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
 					printf("--> [[FAIL]]\n\n");
 				}
-			} else if (strcmp(function, "to_sign_magnitude") == 0){
-				to_sign_magnitude(input1, input2);
+			} 
+			
+			
+			//signed representation functions
+			
+			else if (strcmp(function, "to_sign_magnitude") == 0){
+				int32_t number = (int32_t)atoi(input1) //convert character to integer with atoi()
+				to_sign_magnitude(number, result);
 				printf("Test %d: to_sign_magnitude("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
@@ -81,7 +89,8 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_ones_complement")== 0){
-				to_ones_complement(input1, input2);
+				int32_t number = (int32_t)atoi(input1) //character to integer
+				to_ones_complement(number, result);
 				printf("Test %d: to_ones_complement("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
@@ -90,7 +99,8 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "to_twos_complement")== 0){
-				to_twos_complement(input1, input2);
+				int32_t number = (int32_t)atoi(input1) //character to integer
+				to_twos_complement(number, result);
 				printf("Test %d: to_twos_complement("%s") -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
