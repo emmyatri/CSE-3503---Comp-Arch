@@ -46,7 +46,7 @@ void oct_to_hex(const char *oct, char *out){
 
 		//Convert 4bit value to hex character
 
-		if (fourBit > 10){
+		if (fourBit < 10){
 			out[out_pos++] = '0' + fourBit; // zero through nine
 		}else {
 			out[out_pos++] = 'A' + (fourBit - 10); // letters 'A' - 'F'
@@ -56,7 +56,7 @@ void oct_to_hex(const char *oct, char *out){
 
 	//reverse hex digits
 	int hex_len = out_pos;
-	for (int i = 0; i < hex_len; i++){
+	for (int i = 0; i < hex_len / 2; i++){
 		char temp = out[i];
 		out[i] = out[hex_len - 1 - i];
 		out[hex_len - 1 - i] = temp;
@@ -104,7 +104,7 @@ void to_sign_magnitude(int32_t n, char *out){
 
 	//Build 32-bit binary from right to left
 	for (int i = 31; i >= 0; i--){
-		if (i = 31){
+		if (i == 31){
 			out[31-i] = is_negative ? '1' : '0'; //use bit 31 as sign bit: 1 for negative, 0 for positive
 		} else { //Bits 0-30 represent the size
 			out[31-i] = (magnitude >> i) & 1 ? '1' : '0';
@@ -126,7 +126,7 @@ void to_ones_complement(int32_t n, char *out){
 		}
 
 	//built 32bit string from bit pattern
-	for (int i = 32; i >= 0; i--){
+	for (int i = 31; i >= 0; i--){
 		out[31-i] = (bit_pattern >> i) & 1 ? '1' : '0';
 	}
 
