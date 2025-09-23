@@ -16,14 +16,13 @@ Advanced data representation functions for Owl Tech's CPU design team.
 
 
 ## Build Instructions
-
+**bash**
 ```
-bash
 gcc -o convert convert.c main.c 
 ./convert
 ```
+**powershell**
 ```
-powershell
 gcc -o convert convert.c main.c
 convert.exe
 ```
