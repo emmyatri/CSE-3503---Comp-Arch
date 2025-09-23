@@ -12,7 +12,7 @@ Advanced data representation functions for Owl Tech's CPU design team.
 
 - Direct mapping runctions (oct/hex/bin)
 - Signed number representations
-- Reused test framework from A1
+- Improved test framework from A1
 
 
 ## Build Instructions
