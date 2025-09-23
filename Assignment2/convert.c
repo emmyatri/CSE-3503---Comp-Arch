@@ -61,6 +61,18 @@ void oct_to_hex(const char *oct, char *out){
 		out[i] = out[hex_len - 1 - i];
 		out[hex_len - 1 - i] = temp;
 	}
+
+	int start = 0;
+	while (start < hex_len - 1 && out[start] == '0'){
+		start++;
+	}
+
+	if (start > 0){
+		for (int i = 0; i < hex_len - start; i++){
+			out[i] = out[start+i];
+		}
+		hex_len -= start;
+	}
 	out[hex_len] = '\0'; //null terminator
 }
 

@@ -56,18 +56,18 @@ int main(){
 				}
 		
 			} else if (strcmp(function, "oct_to_hex")== 0){
-				oct_to_hex(result, input2);
+				oct_to_hex(input1, result);
 				printf("Test %d: oct_to_hex(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
-				if (strcmp(input1, result) == 0){
+				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "hex_to_bin")== 0){
-				hex_to_bin(result, input2);
+				hex_to_bin(input1, result);
 				printf("Test %d: hex_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
-				if (strcmp(input1, result) == 0){
+				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
