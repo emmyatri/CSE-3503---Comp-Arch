@@ -109,7 +109,7 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			}
-		}
+		
 		
 			fclose(file);
 
@@ -120,8 +120,8 @@ int main(){
 				printf("%d tests failed. Check implementation.", test_count - passed);
 				return 1;
 			}
+			return 0;
 		}
-}
 
 
 
