@@ -25,6 +25,6 @@ gcc -o convert convert.c main.c
 
 ## Test Results
 
-Summary: 51 / 51 tests passed.
+Summary: 51 / 51 tests passed.   
 All tests passed sucessfully! 
 
