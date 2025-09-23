@@ -46,16 +46,16 @@ int main(){
 			//direct mapping functions
 
 			if (strcmp(function, "oct_to_bin")== 0){
-				oct_to_bin(input1, result);
+				oct_to_bin(input1, result); //compare expected to result.
 				printf("Test %d: oct_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
-				if (strcmp(result, input2) == 0){
+				if (strcmp(result, input2) == 0){ //logic to account for pass/fail
 					printf("--> [[PASS]]\n\n");
-					passed++;
+					passed++;//add to test pass counter
 				} else {
-					printf("--> [[FAIL]]\n\n");
+					printf("--> [[FAIL]]\n\n");//output message for test failure
 				}
 		
-			} else if (strcmp(function, "oct_to_hex")== 0){
+			} else if (strcmp(function, "oct_to_hex")== 0){ //continue same logic pattern for other methods
 				oct_to_hex(input1, result);
 				printf("Test %d: oct_to_hex(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(result, input2) == 0){
@@ -80,15 +80,15 @@ int main(){
 			
 			else if (strcmp(function, "to_sign_magnitude") == 0){
 				int32_t number = (int32_t)atoi(input1); //convert character to integer with atoi()
-				to_sign_magnitude(number, result);
+				to_sign_magnitude(number, result); //call method
 				printf("Test %d: to_sign_magnitude(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
-				if (strcmp(result, input2) == 0){
+				if (strcmp(result, input2) == 0){ //logic for pass/fail
 					printf("--> [[PASS]]\n\n");
-					passed++;
+					passed++;//add to pass counter if pass
 				} else {
-					printf("--> [[FAIL]]\n\n");
+					printf("--> [[FAIL]]\n\n"); //fail message if womp womp
 				}
-			} else if (strcmp(function, "to_ones_complement")== 0){
+			} else if (strcmp(function, "to_ones_complement")== 0){ //continue same logic for remainder of methods
 				int32_t number = (int32_t)atoi(input1); //character to integer
 				to_ones_complement(number, result);
 				printf("Test %d: to_ones_complement(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
@@ -113,15 +113,15 @@ int main(){
 	}
 		
 		
-			fclose(file);
+			fclose(file); //close the file to avoid resource leak
 
-			printf("\nSummary: %d / %d tests passed.\n", passed, test_count);
-			if (passed == test_count){
-				printf("All tests passed successfully! \n\n");
-			} else {
-				printf("%d tests failed. Check implementation.", test_count - passed);
+			printf("\nSummary: %d / %d tests passed.\n", passed, test_count); //Summary message
+			if (passed == test_count){ //compare passed tests to test count
+				printf("All tests passed successfully! \n\n"); // your did it, gold star for the good noodle
+           
+				printf("%d tests failed. Check implementation.", test_count - passed); //womp womp, check your methods
 				return 1;
 			}
-			return 0;
+			return 0; //end program
 		}
 
