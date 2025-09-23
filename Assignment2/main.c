@@ -118,7 +118,7 @@ int main(){
 			printf("\nSummary: %d / %d tests passed.\n", passed, test_count); //Summary message
 			if (passed == test_count){ //compare passed tests to test count
 				printf("All tests passed successfully! \n\n"); // your did it, gold star for the good noodle
-           
+           		} else {
 				printf("%d tests failed. Check implementation.", test_count - passed); //womp womp, check your methods
 				return 1;
 			}
