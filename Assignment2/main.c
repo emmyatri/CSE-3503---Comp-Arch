@@ -14,7 +14,7 @@ void to_twos_complement(int32_t n, char *out);
 int main(){
 	FILE *file = fopen("a2_test.txt", "r"); //open and read the test file provided
 	if (file ==  NULL){
-		printf("Error: Could not open test file a1_test_file.txt\n"); //throws error if file not found
+		printf("Error: Could not open test file a2_test.txt\n"); //throws error if file not found
 		return 1;
 	}
 
