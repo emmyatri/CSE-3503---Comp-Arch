@@ -109,6 +109,8 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			}
+		}
+	}
 		
 		
 			fclose(file);
@@ -123,4 +125,3 @@ int main(){
 			return 0;
 		}
 
-}
