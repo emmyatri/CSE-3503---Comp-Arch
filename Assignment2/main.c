@@ -6,9 +6,9 @@
 void oct_to_bin(const char *oct, char *out);
 void oct_to_hex(const char *oct, char *out);
 void hex_to_bin(const char *hex, char *out);
-void to_sign_magnitude(uint32_t n, char *out);
-void to_ones_complement(uint32_t n, char *out);
-void to_twos_complement(uint32_t n, char *out);
+void to_sign_magnitude(int32_t n, char *out);
+void to_ones_complement(int32_t n, char *out);
+void to_twos_complement(int32_t n, char *out);
 
 
 int main(){
@@ -48,7 +48,7 @@ int main(){
 			if (strcmp(function, "oct_to_bin")== 0){
 				oct_to_bin(input1, result);
 				printf("Test %d: oct_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
-				if (strcmp(result, result) == 0){
+				if (strcmp(result, input2) == 0){
 					printf("--> [[PASS]]\n\n");
 					passed++;
 				} else {
@@ -56,7 +56,7 @@ int main(){
 				}
 		
 			} else if (strcmp(function, "oct_to_hex")== 0){
-				oct_to_hex(input1, result);
+				oct_to_hex(result, input2);
 				printf("Test %d: oct_to_hex(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(input1, result) == 0){
 					printf("--> [[PASS]]\n\n");
@@ -65,7 +65,7 @@ int main(){
 					printf("--> [[FAIL]]\n\n");
 				}
 			} else if (strcmp(function, "hex_to_bin")== 0){
-				hex_to_bin(input1, result);
+				hex_to_bin(result, input2);
 				printf("Test %d: hex_to_bin(%s) -> Expected: [%s] || Got: [%s] ", test_count, input1, input2, result);
 				if (strcmp(input1, result) == 0){
 					printf("--> [[PASS]]\n\n");

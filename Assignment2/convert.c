@@ -79,6 +79,8 @@ void hex_to_bin(const char *hex, char *out){
 			digit_value = hex_char - '0'; // zero through nine
 		} else if (hex_char >= 'A' && hex_char <= 'F'){
 			digit_value = hex_char - 'A' + 10; // A through F
+		} else if (hex_char >= 'a' && hex_char <= 'f'){
+			digit_valud = hex_chat - 'a' + 10; // a through f
 		}
 
 		out[out_pos++] = (digit_value >> 3) & 1 ? '1' : '0'; //most significant
