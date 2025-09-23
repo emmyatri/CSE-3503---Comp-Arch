@@ -10,7 +10,7 @@ Advanced data representation functions for Owl Tech's CPU design team.
 
 ## What's New
 
-- Direct mapping runctions (oct/hex/bin)
+- Direct mapping functions (oct/hex/bin)
 - Signed number representations
 - Improved test framework from A1
 
@@ -26,5 +26,5 @@ gcc -o convert convert.c main.c
 ## Test Results
 
 Summary: 51 / 51 tests passed.   
-All tests passed sucessfully! 
+All tests passed successfully! 
 

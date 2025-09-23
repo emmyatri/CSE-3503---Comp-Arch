@@ -117,7 +117,7 @@ int main(){
 
 			printf("\nSummary: %d / %d tests passed.\n", passed, test_count);
 			if (passed == test_count){
-				printf("All tests passed sucessfully! \n\n");
+				printf("All tests passed successfully! \n\n");
 			} else {
 				printf("%d tests failed. Check implementation.", test_count - passed);
 				return 1;
