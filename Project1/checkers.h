@@ -35,10 +35,17 @@ void PromoteKing(GameState* game);
 int HasWon(GameState* game, int player);
 int CanMove(GameState* game, int player);
 
+
 //helper functions for game logic
 
 void SwitchPlayer(GameState* game);
 unsigned long long GetAllPieces(GameState* game);
 unsigned long long GetPlayerPieces(GameState* game, int player);
+
+// Mandatory capture functions
+int CanPieceCapture(GameState* game, int piecePos, int player);
+int HasCaptures(GameState* game, int player);
+void GetPossibleCaptures(GameState* game, int player, int* captures, int* count);
+int CanContinueCapture(GameState* game, int position);
 
 #endif

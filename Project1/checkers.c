@@ -7,11 +7,11 @@
 
 void InitGame(GameState* game) {
     // Red pieces on bottom 3 rows (positions 0-11)
-    game->red_pieces = 0xFFF;  // 111111111111 in binary
+    game->red_pieces = 0xFFF00000;  // 111111111111 in binary
     game->red_kings = 0;
     
     // Black pieces on top 3 rows (positions 20-31)
-    game->black_pieces = 0xFFF00000;  // 111111111111 shifted up
+    game->black_pieces = 0xFFF;  // 111111111111 shifted up
     game->black_kings = 0;
     
     game->current_player = 0;  // Red starts
@@ -32,21 +32,21 @@ void PrintBoard(GameState* game) {
             } else {
                 int pos = PosToIndex(row, col);
                 if (GetBit64(game->red_pieces, pos)) {
-                    printf(" r");
+                    printf(" r"); //red piece
                 } else if (GetBit64(game->red_kings, pos)) {
-                    printf(" R");
+                    printf(" R"); //red king
                 } else if (GetBit64(game->black_pieces, pos)) {
-                    printf(" b");
+                    printf(" b"); //black piece
                 } else if (GetBit64(game->black_kings, pos)) {
-                    printf(" B");
+                    printf(" B"); //black king
                 } else {
-                    printf(" .");
+                    printf(" ."); //dark squares
                 }
             }
         }
         printf("\n");
     }
-    printf("\nCurrent player: %s\n\n", game->current_player == 0 ? "Red" : "Black");
+    printf("\nCurrent player: %s\n\n", game->current_player == 0 ? "Red" : "Black"); //display the current player
 }
 
 // Position validation
@@ -303,6 +303,78 @@ int CanMove(GameState* game, int player) {
             }
         }
     }
+
     
     return 0;  // No valid moves
+}
+
+int CanPieceCapture(GameState* game, int piecePos, int player) {
+    if (!GetBit64(GetPlayerPieces(game, player), piecePos)) return 0;
+
+    int row, col;
+    IndexToPos(piecePos, &row, &col);
+    int isKing = IsKing(game, piecePos);
+
+    // Check all 4 diagonal directions
+    int directions[4][2] = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
+
+    for (int d = 0; d < 4; d++) {
+        // Skip backward directions for non-kings
+        if (!isKing) {
+            if (player == 0 && directions[d][0] > 0) continue;  // Red can't go down
+            if (player == 1 && directions[d][0] < 0) continue;  // Black can't go up
+        }
+
+        int midRow = row + directions[d][0];
+        int midCol = col + directions[d][1];
+        int jumpRow = row + 2 * directions[d][0];
+        int jumpCol = col + 2 * directions[d][1];
+
+        if (IsValidPos(midRow, midCol) && IsValidPos(jumpRow, jumpCol)) {
+            int midPos = PosToIndex(midRow, midCol);
+            int jumpPos = PosToIndex(jumpRow, jumpCol);
+
+            // Check if there's an opponent piece to jump and landing is empty
+            if (IsOccupied(game, midPos) &&
+                GetPieceOwner(game, midPos) != player &&
+                !IsOccupied(game, jumpPos)) {
+                return 1;  // Can capture
+                }
+        }
+    }
+
+    return 0;  // No captures available
+}
+
+int HasCaptures(GameState* game, int player) { //check if capture is available
+    unsigned long long pieces = GetPlayerPieces(game, player);
+
+    for (int i = 0; i < 32; i++) {
+        if (GetBit64(pieces, i) && CanPieceCapture(game, i, player)) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+// Get all possible captures for display
+void GetPossibleCaptures(GameState* game, int player, int* captures, int* count) {
+    *count = 0;
+    unsigned long long pieces = GetPlayerPieces(game, player);
+
+    for (int i = 0; i < 32; i++) {
+        if (GetBit64(pieces, i) && CanPieceCapture(game, i, player)) {
+            captures[(*count)++] = i;
+        }
+    }
+}
+
+// Check for multiple jumps after a capture
+int CanContinueCapture(GameState* game, int position) {
+    // Get the owner of the piece at this position
+    int player = GetPieceOwner(game, position);
+    if (player == -1) return 0;  // No piece at position
+
+    return CanPieceCapture(game, position, player);
 }

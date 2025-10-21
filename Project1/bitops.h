@@ -30,7 +30,7 @@ void PrintHex(unsigned int value); //show in hexadecimal
 unsigned long long SetBit64(unsigned long long value, int position);
 unsigned long long ClearBit64(unsigned long long value, int position);
 unsigned long long ToggleBit64(unsigned long long value, int position);
-unsigned long long ModifyBit64(unsigned long long value, int position, int operation);
+unsigned long long ModifyBits64(unsigned long long value, int position, int operation);
 int GetBit64(unsigned long long value, int position);
 int CountBits64(unsigned long long value);
 void PrintBinary64(unsigned long long value);
