@@ -35,25 +35,8 @@ and game logic, including mandatory capture rules.
 
 ## Build Instructions
 
-### Make Build
 ```
 bash
-
-//compile the game
-make clean
-make
-
-//run the game
-make run
-
-or
-
-./checkers
-```
-
-### Quick Build
-
-```
 gcc checkers.c bitops.c main.c -o checkers
 ./checkers
 ```
