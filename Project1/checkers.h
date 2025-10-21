@@ -5,7 +5,7 @@
 typedef struct{
 	unsigned long long red_pieces; //reg red pieces
 	unsigned long long red_kings; //red king pieces
-	unsigned long long blacn_pieces; //reg black pieces
+	unsigned long long black_pieces; //reg black pieces
 	unsigned long long black_kings; //black kings
 	int current_player; // 0 = red, 1 = black
 } GameState;
@@ -25,7 +25,7 @@ int PosToIndex(int row, int column);
 void IndexToPos(int index, int* row, int* column);
 int IsOccupied(GameState* game, int position);
 int GetPieceOwner(GameState* game, int position);
-int IsKing(Gamestate* game, int position);
+int IsKing(GameState* game, int position);
 
 //Game logic
 

@@ -6,7 +6,7 @@
 
 
 unsigned int ModifyBits(unsigned int value, int position, int operation) {
-	if (position < 0 || >= 32)
+	if (position < 0 || position >= 32)
 		return value; // Invalid position, return original value
 
 	switch (operation) {
@@ -30,7 +30,7 @@ unsigned int ToggleBit(unsigned int value, int position) {
 }
 
 int GetBit(unsigned int value, int position){
-	if (position < 0 || >= 32) return 0;
+	if (position < 0 || position >= 32) return 0;
 	return (value >> position) & 1;
 }
 
@@ -55,7 +55,7 @@ unsigned int ShiftRight(unsigned int value, int positions) {
 
 void PrintBinary(unsigned int value) {
 	for (int i = 31; i >= 0; i--) {
-		printf("%d", (value >> 1) & 1);
+		printf("%d", (int)(value >> i) & 1);
 		if (i % 8 == 0 && i != 0) printf(" ");
 	}
 	printf("\n");
@@ -66,7 +66,7 @@ void PrintHex(unsigned int value) {
 }
 
 unsigned int ModifyBits64(unsigned long long value, int position, int operation) {
-	if (position < 0 || >= 64)
+	if (position < 0 || position >= 64)
 		return value; // Invalid position, return original value
 
 	switch (operation) {
@@ -77,24 +77,24 @@ unsigned int ModifyBits64(unsigned long long value, int position, int operation)
 	}
 }
 
-unsigned int SetBit(unsigned long long value, int position) {
-	return ModifyBits(value, position, 1);
+unsigned long long SetBit64(unsigned long long value, int position) {
+	return ModifyBits64(value, position, 1);
 }
 
-unsigned int ClearBit(unsigned long long value, int position) {
-	return ModifyBits(value, position, 0);
+unsigned long long ClearBit64(unsigned long long value, int position) {
+	return ModifyBits64(value, position, 0);
 }
 
-unsigned int ToggleBit(unsigned long long value, int position) {
-	return ModifyBits(value, position, 2);
+unsigned long long ToggleBit64(unsigned long long value, int position) {
+	return ModifyBits64(value, position, 2);
 }
 
-int GetBit(unsigned long long value, int position) {
-	if (position < 0 || >= 64) return 0;
+int GetBit64(unsigned long long value, int position) {
+	if (position < 0 || position >= 64) return 0;
 	return (value >> position) & 1;
 }
 
-int CountBits(unsigned long long value) {
+int CountBits64(unsigned long long value) {
 	int count = 0;
 	while (value) {
 		count += value & 1;
@@ -104,9 +104,9 @@ int CountBits(unsigned long long value) {
 }
 
 
-void PrintBinary(unsigned long long value) {
+void PrintBinary64(unsigned long long value) {
 	for (int i = 63; i >= 0; i--) {
-		printf("%d", (value >> 1) & 1);
+		printf("%d", (int)(value >> i) & 1);
 		if (i % 8 == 0 && i != 0) printf(" ");
 	}
 	printf("\n");
