@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -g -O2
-LIBS = -lm
+
 
 OBJS = bitops.o checkers.o main.o
 TARGET = checkers
