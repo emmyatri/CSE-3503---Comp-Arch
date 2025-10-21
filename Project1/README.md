@@ -35,6 +35,18 @@ and game logic, including mandatory capture rules.
 
 ## Build Instructions
 
+#### Using Makefile
+```
+//Build Program
+make
+
+//Run program 
+make run
+
+//Clean build files
+make clean
+```
+#### Compile Manually
 ```
 bash
 gcc checkers.c bitops.c main.c -o checkers

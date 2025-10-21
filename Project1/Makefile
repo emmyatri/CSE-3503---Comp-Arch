@@ -1,5 +1,5 @@
-checkers: checkers.c
-	gcc -o checkers checkers.checkers
+checkers: main.c checkers.c bitops.c
+	gcc -o checkers main.c checkers.c bitops.c
 
 clean:
 	rm -f checkers
