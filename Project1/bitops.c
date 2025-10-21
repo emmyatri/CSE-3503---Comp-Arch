@@ -65,7 +65,7 @@ void PrintHex(unsigned int value) {
 	printf("0x%08X\n", value);
 }
 
-unsigned int ModifyBits64(unsigned long long value, int position, int operation) {
+unsigned long long ModifyBits64(unsigned long long value, int position, int operation) {
 	if (position < 0 || position >= 64)
 		return value; // Invalid position, return original value
 

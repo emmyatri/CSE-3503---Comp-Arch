@@ -143,8 +143,8 @@ int MakeMove(GameState* game, int from, int to) {
     
     // Check direction for non-kings
     if (!IsKing(game, from)) {
-        if (owner == 0 && toRow >= fromRow) return 0;  // Red must move up
-        if (owner == 1 && toRow <= fromRow) return 0;  // Black must move down
+        if (owner == 0 && toRow > fromRow) return 0;  // Red must move up
+        if (owner == 1 && toRow < fromRow) return 0;  // Black must move down
     }
     
     // Move piece
@@ -276,8 +276,8 @@ int CanMove(GameState* game, int player) {
                 if (!IsOccupied(game, newPos)) {
                     // Check direction for non-kings
                     if (!IsKing(game, i)) {
-                        if (player == 0 && directions[d][0] >= 0) continue;
-                        if (player == 1 && directions[d][0] <= 0) continue;
+                        if (player == 0 && directions[d][0] > 0) continue;
+                        if (player == 1 && directions[d][0] < 0) continue;
                     }
                     return 1;  // Found valid move
                 }
@@ -295,8 +295,8 @@ int CanMove(GameState* game, int player) {
                     GetPieceOwner(game, midPos) != player) {
                     // Check direction for non-kings
                     if (!IsKing(game, i)) {
-                        if (player == 0 && directions[d][0] >= 0) continue;
-                        if (player == 1 && directions[d][0] <= 0) continue;
+                        if (player == 0 && directions[d][0] > 0) continue;
+                        if (player == 1 && directions[d][0] < 0) continue;
                     }
                     return 1;  // Found valid jump
                 }

@@ -1,11 +1,10 @@
 // main.c - Main entry point for BitBoard Checkers with SDL2 GUI
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "checkers.h"
 #include "bitops.h"
 
-// Function prototype for GUI (implemented in checkers_gui.c)
-int RunGUI(GameState* game);
 
 // Test bit operations to demonstrate Phase 1 functionality
 void TestBitOperations() {
@@ -58,21 +57,123 @@ void TestBitOperations() {
     getchar();
 }
 
+void ClearScreen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+void PrintInstructions() {
+    printf("\n=== BITBOARD CHECKERS ===\n");
+    printf("Instructions:\n");
+    printf("- Enter moves as: row,col to row,col (e.g., 2,1 to 3,2)\n");
+    printf("- Red pieces: r (regular), R (king)\n");
+    printf("- Black pieces: b (regular), B (king)\n");
+    printf("- Type 'quit' to exit\n");
+    printf("- Type 'help' for instructions\n\n");
+}
+
+int ParseMove(const char* input, int* fromRow, int* fromCol, int* toRow, int* toCol) {
+    if (sscanf(input, "%d,%d to %d,%d", fromRow, fromCol, toRow, toCol) == 4) {
+        return 1;
+    }
+    return 0;
+}
+
 int main(int argc, char* argv[]) {
     // Test bit operations first (demonstrates Phase 1)
     TestBitOperations();
-    
+
     // Initialize game
     GameState game;
     InitGame(&game);
-    
-    // Start GUI
-    printf("\nStarting BitBoard Checkers GUI...\n");
-    printf("\nControls:\n");
-    printf("  Left click - Select piece or move\n");
-    printf("  B key - Toggle bitboard display\n");
-    printf("  R key - Reset game\n");
-    printf("  ESC - Exit\n\n");
-    
-    return RunGUI(&game);
+
+    char input[100];
+    int fromRow, fromCol, toRow, toCol;
+
+    ClearScreen();
+    PrintInstructions();
+
+    // Main game loop
+    while (1) {
+        PrintBoard(&game);
+
+        // Check for win condition
+        if (HasWon(&game, 0)) {
+            printf("Red wins!\n");
+            break;
+        } else if (HasWon(&game, 1)) {
+            printf("Black wins!\n");
+            break;
+        }
+
+        // Check if current player can move
+        if (!CanMove(&game, game.current_player)) {
+            printf("%s has no valid moves. %s wins!\n",
+                   game.current_player == 0 ? "Red" : "Black",
+                   game.current_player == 0 ? "Black" : "Red");
+            break;
+        }
+
+        // Get player input
+        printf("Enter move (row,col to row,col): ");
+        if (fgets(input, sizeof(input), stdin) == NULL) {
+            break;
+        }
+
+        // Remove newline
+        input[strcspn(input, "\n")] = 0;
+
+        // Check for special commands
+        if (strcmp(input, "quit") == 0) {
+            printf("Thanks for playing!\n");
+            break;
+        } else if (strcmp(input, "help") == 0) {
+            PrintInstructions();
+            continue;
+        }
+
+        // Parse move
+        if (!ParseMove(input, &fromRow, &fromCol, &toRow, &toCol)) {
+            printf("Invalid format. Use: row,col to row,col\n");
+            continue;
+        }
+
+        // Validate positions
+        if (!IsValidPos(fromRow, fromCol) || !IsValidPos(toRow, toCol)) {
+            printf("Invalid position. Use dark squares only.\n");
+            continue;
+        }
+
+        // Convert to bit positions
+        int from = PosToIndex(fromRow, fromCol);
+        int to = PosToIndex(toRow, toCol);
+
+        // Try to make the move
+        int moveDistance = abs(toRow - fromRow);
+
+        if (moveDistance == 1) {
+            // Regular move
+            if (MakeMove(&game, from, to)) {
+                ClearScreen();
+                printf("Move successful!\n");
+            } else {
+                printf("Invalid move. Try again.\n");
+            }
+        } else if (moveDistance == 2) {
+            // Jump/capture
+            if (MakeCapture(&game, from, to)) {
+                ClearScreen();
+                printf("Capture successful!\n");
+            } else {
+                printf("Invalid capture. Try again.\n");
+            }
+        } else {
+            printf("Invalid move distance.\n");
+        }
+    }
+
+    return 0;
 }
