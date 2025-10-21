@@ -1,8 +1,9 @@
 // checkers_gui.c - SDL2 GUI implementation for checkers
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SLD.h>
-#include <SDL2/SLD_ttf.h>
+#include <math.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "checkers.h"
 #include "bitops.h"
 
