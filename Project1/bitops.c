@@ -18,23 +18,23 @@ unsigned int ModifyBits(unsigned int value, int position, int operation) {
 }
 
 unsigned int SetBit(unsigned int value, int position) {
-	return ModifyBits(value, position, 1);
+	return ModifyBits(value, position, 1); //call modify bits method
 }
 
 unsigned int ClearBit(unsigned int value, int position) {
-	return ModifyBits(value, position, 0);
+	return ModifyBits(value, position, 0); //call modify to clear
 }
 
 unsigned int ToggleBit(unsigned int value, int position) {
-	return ModifyBits(value, position, 2);
+	return ModifyBits(value, position, 2); //call modify to toggle
 }
 
 int GetBit(unsigned int value, int position){
-	if (position < 0 || position >= 32) return 0;
-	return (value >> position) & 1;
+	if (position < 0 || position >= 32) return 0; //invalid bit
+	return (value >> position) & 1; //return Bit if valid
 }
 
-int CountBits(unsigned int value) {
+int CountBits(unsigned int value) { //count number of bits
 	int count = 0;
 	while (value) {
 		count += value & 1;
@@ -43,17 +43,17 @@ int CountBits(unsigned int value) {
 	return count;
 }
 
-unsigned int ShiftLeft(unsigned int value, int positions) {
+unsigned int ShiftLeft(unsigned int value, int positions) { //logic to shift left
 	if (positions < 0 || positions >= 32) return 0;
 	return value << positions;
 }
 
-unsigned int ShiftRight(unsigned int value, int positions) {
+unsigned int ShiftRight(unsigned int value, int positions) { //logic to shift right
 	if (positions < 0 || positions >= 32) return 0;
 	return value >> positions;
 }
 
-void PrintBinary(unsigned int value) {
+void PrintBinary(unsigned int value) { //print in binary
 	for (int i = 31; i >= 0; i--) {
 		printf("%d", (int)(value >> i) & 1);
 		if (i % 8 == 0 && i != 0) printf(" ");
@@ -61,11 +61,11 @@ void PrintBinary(unsigned int value) {
 	printf("\n");
 }
 
-void PrintHex(unsigned int value) {
+void PrintHex(unsigned int value) { //print in hexadecimal
 	printf("0x%08X\n", value);
 }
 
-unsigned long long ModifyBits64(unsigned long long value, int position, int operation) {
+unsigned long long ModifyBits64(unsigned long long value, int position, int operation) { //modify bits for 64
 	if (position < 0 || position >= 64)
 		return value; // Invalid position, return original value
 
@@ -77,24 +77,24 @@ unsigned long long ModifyBits64(unsigned long long value, int position, int oper
 	}
 }
 
-unsigned long long SetBit64(unsigned long long value, int position) {
+unsigned long long SetBit64(unsigned long long value, int position) { //call modify to set
 	return ModifyBits64(value, position, 1);
 }
 
-unsigned long long ClearBit64(unsigned long long value, int position) {
+unsigned long long ClearBit64(unsigned long long value, int position) { //call modify to clear
 	return ModifyBits64(value, position, 0);
 }
 
-unsigned long long ToggleBit64(unsigned long long value, int position) {
+unsigned long long ToggleBit64(unsigned long long value, int position) { //call modify to toggle
 	return ModifyBits64(value, position, 2);
 }
 
-int GetBit64(unsigned long long value, int position) {
+int GetBit64(unsigned long long value, int position) { //get bit
 	if (position < 0 || position >= 64) return 0;
 	return (value >> position) & 1;
 }
 
-int CountBits64(unsigned long long value) {
+int CountBits64(unsigned long long value) { //count bits
 	int count = 0;
 	while (value) {
 		count += value & 1;
@@ -104,7 +104,7 @@ int CountBits64(unsigned long long value) {
 }
 
 
-void PrintBinary64(unsigned long long value) {
+void PrintBinary64(unsigned long long value) { //print in binary
 	for (int i = 63; i >= 0; i--) {
 		printf("%d", (int)(value >> i) & 1);
 		if (i % 8 == 0 && i != 0) printf(" ");

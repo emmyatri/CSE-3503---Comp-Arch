@@ -16,6 +16,14 @@ and game logic, including mandatory capture rules.
 - Multiple jump and mandatory capture support
 - King promotion and backwards movement
 
+## How to Play
+
+- Enter moves as: row,col to row,col (e.g., 2,1 to 3,2)
+- Red pieces: r (regular), R (king)
+- Black pieces: b (regular), B (king)
+- Type 'quit' to exit
+- Type 'help' for instructions
+
 ## Features
 
 ### Phase 1 - Bit Operations

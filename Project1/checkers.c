@@ -6,18 +6,18 @@
 //Initialize game
 
 void InitGame(GameState* game) {
-    // Red pieces on bottom 3 rows (positions 0-11)
-    game->red_pieces = 0xFFF00000;  // 111111111111 in binary
+    // Red pieces: bits 20-31 represents rows 5-7 (bottom 3 rows)
+    game->red_pieces = 0xFFF00000;
     game->red_kings = 0;
     
-    // Black pieces on top 3 rows (positions 20-31)
-    game->black_pieces = 0xFFF;  // 111111111111 shifted up
+    // Black pieces: bits 0-11 represent rows 0-2 (top 3 rows)
+    game->black_pieces = 0xFFF;
     game->black_kings = 0;
     
     game->current_player = 0;  // Red starts
 }
 
-void PrintBoard(GameState* game) {
+void PrintBoard(GameState* game) { //construct visualization of game board
     printf("\n  ");
     for (int i = 0; i < 8; i++) {
         printf(" %d", i);
@@ -50,7 +50,7 @@ void PrintBoard(GameState* game) {
 }
 
 // Position validation
-int IsValidPos(int row, int col) {
+int IsValidPos(int row, int col) { //validate the position
     return row >= 0 && row < 8 && col >= 0 && col < 8 && (row + col) % 2 == 1;
 }
 
@@ -308,6 +308,7 @@ int CanMove(GameState* game, int player) {
     return 0;  // No valid moves
 }
 
+// Validate ability to capture
 int CanPieceCapture(GameState* game, int piecePos, int player) {
     if (!GetBit64(GetPlayerPieces(game, player), piecePos)) return 0;
 
@@ -319,6 +320,7 @@ int CanPieceCapture(GameState* game, int piecePos, int player) {
     int directions[4][2] = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
 
     for (int d = 0; d < 4; d++) {
+
         // Skip backward directions for non-kings
         if (!isKing) {
             if (player == 0 && directions[d][0] > 0) continue;  // Red can't go down
